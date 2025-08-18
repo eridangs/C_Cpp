@@ -1,0 +1,42 @@
+Variaveis compostas homogeneas, aquelas que guardam mais informações do mesmo tipo (VETOR)
+
+Variaveis compostas heterogeneas conseguem armazenar diferentes tipos (REGISTROS)
+
+Em C tem tipos de dados: Char, Str, Int, Void
+
+Tudo que é passado por # é passado para o PRÉ PROCESSAMENTO
+
+Os registros são as estruturas, struct -
+Representam novos tipos de variaveis e podem ser usadas na declaração de outras variaveis.
+
+Primeito se declara o struct antes do inicio das funções:
+1 - struct nome_da_estrutura nome_da_variavel;
+
+Depois define o struct (ANTES DAS FUNÇÕES):
+2 - struct nome_da_estrutura{
+    <tipo> <campo>;
+    <tipo> <campo>;
+    <tipo> <campo>;
+};**
+
+Exemplo: struct aluno{
+    int rga;
+    char nome[30];
+};
+
+3 - Usar ela como tipo para outra variavel;
+
+4 - Pode inicializar ela no inicio da declaração da variavel:
+struct nome_da_estrutura nome_da_variavel = {valor1, valor2, valorN};
+
+5 - Pode ler tambem assim:
+scanf("%tipo%*c", variavel.campo); (Para cada campo existente)
+
+
+O struct se for 1 variavel solo, é passada por Valor
+O a variavel struct se for 1 vetor, é passada por referencia (posição na memoria)
+
+
+Constantes ENUM: guarda constantes relacionadas, aquelas que representam o mesmo tipo de dado (tipo enumerado)
+Pode usar a variavel que esta dentro do enum diretamente, só chamando o nome dela
+Pense no ENUM do mysql
