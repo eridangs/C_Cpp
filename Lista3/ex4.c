@@ -82,7 +82,7 @@ int menu(int op){
 
 int cadastrar(int i, conta *registro_bancario){
     int j = 0;
-    printf("Adicione os dados:\nNúmero da conta: ", i);
+    printf("Adicione os dados:\nNúmero da conta: ");
     scanf("%d", &registro_bancario[i].num_conta);
 
     for (j = i - 1; j >= 0; j--){
