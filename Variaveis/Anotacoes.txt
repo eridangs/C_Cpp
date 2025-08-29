@@ -40,3 +40,20 @@ O a variavel struct se for 1 vetor, é passada por referencia (posição na memo
 Constantes ENUM: guarda constantes relacionadas, aquelas que representam o mesmo tipo de dado (tipo enumerado)
 Pode usar a variavel que esta dentro do enum diretamente, só chamando o nome dela
 Pense no ENUM do mysql
+
+// for (k = i - 1; k >= 0; k--){
+//     eh_igual = strcmp(registro_bancario[i].nome, registro_bancario[k].nome);
+//     if (eh_igual == 0){
+//         strcpy(registro_bancario[i].nome, "");
+//         printf("Esse nome já esta sendo usado por outro cliente, escolha outra variação do seu nome.\n");
+//         return 0;
+//     }
+// }
+
+// case 5:
+//     for (k = 0; k < i; k ++){
+//         printf("Conta: %d\n", registro_bancario[k].num_conta);
+//         printf("Nome: %s", registro_bancario[k].nome);
+//         printf("Saldo: %.2lf\n", registro_bancario[k].saldo);
+//     }
+// break;
