@@ -1,12 +1,27 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(){
-    float *q, b;
-    b = 3.14;
-    //q = &b; -- necessário para funcionar
-    *q = *q + 1.0;
-    printf("*q = %f\n", *q);
-    //Essa execuxão causa falha de segmento
-    //Pois o *q não está apontando para um endereço conhecido da memória
+    int soma = 0, i, v = 0;
+    FILE *entrada, *saida;
+
+    entrada = fopen("entrada.txt", "r");
+    if(entrada == NULL) {
+        perror("Erro ao abrir o arquivo");
+        exit(1);
+    }
+
+    for(i=0;i<2;i++){
+        fscanf(entrada, "%d", &v);
+        soma += v; 
+    }
+
+    fclose(entrada);
+
+    saida = fopen("saida.txt", "w");
+    fprintf(saida, "%d", soma);
+    fclose(saida);
+    printf("Soma = %d\n",soma);
+
     return 0;
 }

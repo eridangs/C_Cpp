@@ -1,19 +1,37 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(){
-    int x, y;
-    int *p, *q;
+    int soma = 0, retorno = 0, v = 0, v2 = 0;
+    FILE *entrada, *saida;
 
-    x = 2;
-    y = 8;
+    entrada = fopen("entrada.txt", "r");
+    if(entrada == NULL) {
+        perror("Erro ao abrir o arquivo");
+        exit(1);
+    }
 
-    p = &x;
-    q = &y;
+    for(;;){
+        retorno = fscanf(entrada, "%d%d", &v, &v2);
 
-    printf("Endereco x %p e Valor x %d\n", x, x);
-    printf("Valor p %d e valor de p* %d\n", p, *p);
-    printf("Endereco y %p e valor de y %d\n", y, y);
-    printf("Endereco p %p\n", p);
+        if(retorno == EOF){// EOF = -1
+            break;
+        }
+        else if(retorno == 2){
+            soma += v + v2; 
+        }
+        else if(retorno == 1){
+            soma += v;
+        }
+    }
+
+    fclose(entrada);
+    printf("Soma = %d\n",soma);
+
+    saida = fopen("saida.txt", "w");
+    fprintf(saida, "%d", soma);
+    fclose(saida);
+
 
     return 0;
 }

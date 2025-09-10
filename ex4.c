@@ -1,17 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(){
-    int *v ;
+void gera_sequencia();
 
-    v = ( int *) malloc(10 * sizeof(int));
-    printf("Size of int %zu\n", sizeof(int));
-    return 0;
+void gera_sequencia(){
+    int i = 0, termo1 = 0, termo2 = 1, proximo;
+    FILE *fib;
+    fib = fopen("30_fib.txt", "w");
+
+    for(i;i<30;i++){
+        if(i <= 1){ 
+            proximo = i;
+        } else{
+            proximo = termo1 + termo2;
+            termo1 = termo2;
+            termo2 = proximo;
+        }
+        fprintf(fib, "%d\n", proximo);
+    }
+
 }
 
-//Define um ponteiro v
-//Faz o casting para garantir o tipo do vetor
-//Faz com que esse ponteiro seja um vetor
-//O tamanho desse vetor é de 40
-//Pois é 10 vezes o tamanho de um int
-//Faltou o free() ao final
+int main(){
+
+    gera_sequencia();
+
+
+    return 0;
+}
