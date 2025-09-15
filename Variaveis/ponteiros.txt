@@ -1,0 +1,22 @@
+PONTEIRO PARA QUALQUER VALOR VAI TER O MESMO TAMANHO:
+    •TODOS VÃO ARMAZENAR O MESMO ENDEREÇO E TODOS TERÃO O MESMO TAMANHO (NA MESMA MAQUINA)
+
+CADA BYTE ARMAZENA UM ENDEREÇO
+
+printf("%p", &a); -- (%p) imprime o endereco de a, (&) aponta o endereco que a ta na memoria
+
+int main(){
+    int a, *ptr; -- (*) indica que é um ponteiro
+}
+
+int a, *aptr;
+
+--------------------------------------------------------------------------------------------
+
+QUALIFICADOR CONST
+
+--------------------------------------------------------------------------------------------
+
+PONTEIROS E ARRAYS
+
+--------------------------------------------------------------------------------------------

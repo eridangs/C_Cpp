@@ -1,17 +1,29 @@
-
 #include <stdio.h>
-int main () {
-    int op;
-    printf("Entre com uma opcao: \n");
-    scanf("%d", &op);
+#include <locale.h>
+#include <string.h>
 
-    switch(op) { // Usar para o Enum
-        case 1:
-        printf("Opcao 1 selecionada!\n");
+enum estado_civil {SOLTEIRO = 1, CASADO, DIVORCIADO, VIUVO} estado;
+int menu(int op);
+
+int main () {
+    enum estado_civil op = 0;
+    op = menu(op);
+
+    switch(op) {
+        case SOLTEIRO:
+        printf("Seu estado civil é solteiro!\n");
         break;
 
-        case 2:
-        printf("Opcao 2 selecionada!\n");
+        case CASADO:
+        printf("Seu estado civil é casado!\n");
+        break;
+
+        case DIVORCIADO:
+        printf("Seu estado civil é divorciado!\n");
+        break;
+
+        case VIUVO:
+        printf("Seu estado civil é viúvo!\n");
         break;
 
         default:
@@ -20,4 +32,10 @@ int main () {
     }
     
     return 0;
+}
+
+int menu(int op){
+    printf("---Digite o número correspondente a sua situação cívil---\n1 - SOLTEIRO\n2 - CASADO\n3 - DIVORCIADO\n4 - VIÚVO\n5 - SAIR\n");
+    scanf("%d", &op);
+    return op;
 }
