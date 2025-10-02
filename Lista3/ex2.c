@@ -9,7 +9,7 @@ typedef struct{
     int qtd_curso;
 } cadastro;
 
-float calcula(cadastro cadastro, int valor);
+float calcula(cadastro, int);
 
 int main(){
     cadastro cadastro;

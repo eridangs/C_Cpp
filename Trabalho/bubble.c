@@ -58,7 +58,6 @@ int main(void){
     }
 
     bubble(vetor, TAMANHO, tam_tipo, compare);
-    printf("\nChegou aqui!");
 
     printf( "\nItens de dados ordenados\n" );
     switch(tipo_ordenacao){

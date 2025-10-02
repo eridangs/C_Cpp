@@ -13,11 +13,11 @@ typedef struct{
 
 
 // Funções //
-int menu(int op);
-int cadastrar(int i, conta *registro_bancario);
-void mostrar_nomes(int i, conta *registro_bancario);
-int descrobrir_menor(int menor_indice, int i, conta *registro_bancario);
-void inverte_ordem(int menor_indice, conta *registro_bancario);
+int menu(int);
+int cadastrar(int, conta *);
+void mostrar_nomes(int, conta *);
+int descrobrir_menor(int, int, conta *);
+void inverte_ordem(int, conta *);
 // Funções //
 
 

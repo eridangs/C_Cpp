@@ -8,9 +8,9 @@ typedef struct{
 } fracao;
 
 int mdc(int a, int b);
-void simplifica(fracao *fracao); //* Garante que a fração não duplique
-float para_real(fracao f);
-fracao soma(fracao f1, fracao fracao2);
+void simplifica(fracao *); //* Garante que a fração não duplique
+float para_real(fracao );
+fracao soma(fracao, fracao);
 
 int main(){
     setlocale(LC_ALL, "Portuguese");
@@ -21,18 +21,17 @@ int main(){
     float real = 0;
     fracao resultado_soma = {0, 0};
 
-    printf("Fracao original: %d/%d\n", fracao3.numerador, fracao3.denominador);
+    printf("Fracao original: %d / %d\n", fracao3.numerador, fracao3.denominador);
     simplifica(&fracao3);
-    printf("Fracao simplificada: %d/%d\n\n", fracao3.numerador, fracao3.denominador);
-    
+    printf("Fracao simplificada: %d / %d\n", fracao3.numerador, fracao3.denominador);
 
     real = para_real(fracao1);
-    printf("A fracao %d/%d equivale a %.2f\n\n", fracao1.numerador, fracao1.denominador, real);
+    printf("A fracao %d / %d equivale a %.2f\n", fracao1.numerador, fracao1.denominador, real);
 
 
     resultado_soma = soma(fracao1, fracao2);
-    printf("%d/%d + %d/%d = ", fracao1.numerador, fracao1.denominador, fracao2.numerador, fracao2.denominador);
-    printf("%d/%d", resultado_soma.numerador, resultado_soma.denominador;)
+    printf("%d / %d + %d / %d = ", fracao1.numerador, fracao1.denominador, fracao2.numerador, fracao2.denominador);
+    printf("%d / %d", resultado_soma.numerador, resultado_soma.denominador);
 
     return 0;
 };

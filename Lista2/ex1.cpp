@@ -1,23 +1,24 @@
 #include <stdio.h>
 
 int main(){
-    int i = 0;
-    float vetorU[3] , vetorV[3],multiplica = 0, produto = 0;
+    int i = 0, multiplica = 0, produto = 0;
+    int vetorU[3] , vetorV[3];
 
-    printf("Entre com os valores para os vetores U e V:\n");
-
+    
     for (i = 0; i < 3; i++){
-        multiplica = 0;
-        scanf("%f %f", &vetorU[i], &vetorV[i]);
+        printf("Entre o valor %d para o vetor U\n", i);
+        scanf("%d", &vetorU[i]);
+    }
+    for (i = 0; i < 3; i++){
+        printf("Entre o valor %d para o vetor V\n", i);
+        scanf("%d", &vetorV[i]);
+    }
+    for(i = 0; i < 3; i ++){
         multiplica = vetorU[i] * vetorV[i];
-
-        printf("\n");
-
         produto += multiplica;
-
     }
 
-    printf("O produto escalar dos vetores U e V é : %.2f\n", produto);
+    printf("\nO produto escalar dos vetores U e V é : %d\n", produto);
 
     return 0;
 }

@@ -1,49 +1,58 @@
 #include <stdio.h>
-#define M 2 //linhas
-#define N 3 //colunas
+#include <stdlib.h>
 
-void transposta(int Matriz[M][N], int T[N][M]);
+void transposta(int *Matriz, int *T, int, int);
 
 int main(){
-    int Matriz[M][N];
-    int T[N][M];
-    int i, j;
+    int *Matriz;
+    int *T;
+    int i, j, m, n;
 
-    printf("Digite os valores da Matriz %d x %d:\n", M, N);
-    for (i = 0; i < M; i++){
-        for (j = 0; j < N; j++){
-            scanf("%d%*c", &Matriz[i][j]);
+    printf("Digite o número de linhas e colunas da Matriz, respectivamente\n");
+    scanf("%d%*c %d%*c", &m, &n);
+
+    Matriz = (int *) malloc(m*n);
+    T = (int *) malloc(n*m);
+
+    printf("Digite os valores da Matriz %d x %d:\n", m, n);
+    for (i = 0; i < m; i++){
+        for (j = 0; j < n; j++){
+            scanf("%d%*c", &Matriz[i * n + j]); // * n se eu quiser andar de coluna em coluna
         }
     }
 
     printf("\nMatriz original\n");
-    for (i = 0; i < M; i++){
-        for (j = 0; j < N; j++){
-            printf("%d   ", Matriz[i][j]);
+    for (i = 0; i < m; i++){
+        for (j = 0; j < n; j++){
+            printf("%d   ", Matriz[i * n + j]);
         }
         printf("\n");
     }
 
 
-    transposta(Matriz, T);
+    transposta(Matriz, T, m, n);
 
     printf("\nMatriz transposta:\n");
-    for (j = 0; j < N; j++){
-        for (i = 0; i < M; i++){
-            printf("%d   ", T[j][i]);
+    for (j = 0; j < n; j++){
+        for (i = 0; i < m; i++){
+            printf("%d   ", T[j * m + i]); // * m se eu quero andar de linha em linha
         }
         printf("\n");
     }
 
+    free(Matriz);
+    free(T);
     return 0;
 }
 
-void transposta(int Matriz[M][N], int T[N][M]) {
+void transposta(int *Matriz, int *T, int m, int n) {
     int i, j;
 
-    for (i = 0; i < M; i++){
-        for (j = 0; j < N; j++){
-            T[j][i] = Matriz[i][j];
+    for (i = 0; i < m; i++){ //2
+
+        for (j = 0; j < n; j++){ //3
+
+            T[j * m + i] = Matriz[i * n + j];
         }
     }
 }

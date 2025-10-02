@@ -1,38 +1,25 @@
 #include <stdio.h>
+
 int main(){
-    int a, b, c, maior, menor;
-    printf("Digite 3 números:\n");
+    int a, b, c, maior = 0, menor = 0;
+    printf("Digite 3 números inteiros:\n");
     scanf("%d %d %d", &a, &b, &c);
-    if (a > b && a > c){
+
+    if (a >= b && a >= c){
         maior = a;
-        if (b > c){
-            menor = c;
-        }
-        else {
-            menor = b;
-        }
-    }
-    else if (b > a && b > c){
+    } else if (b >= a && b >= c){
         maior = b;
-        if (a > c) {
-            menor = c;
-        }
-        else {
-            menor = a;
-        }
-    }
-    else if (c > a && c > b){
+    } else {
         maior = c;
-        if (a > b){
-            menor = b;
-        }
-        else {
-            menor = a;
-        }
     }
 
+    if (a <= b && a <= c){
+        menor = a;
+    } else if (b <= a && b <= c){
+        menor = a;
+    } else{
+        menor = c;
+    }
     printf("Maior: %d \nMenor: %d" , maior, menor);
-
-
     return 0;
 }
