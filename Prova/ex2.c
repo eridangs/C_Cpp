@@ -2,50 +2,48 @@
 #include <stdlib.h>
 #include <string.h>
 
-void dobrar_mem(int *, size_t, int);
+int* dobrar_mem(int** , size_t, size_t);
 
-void dobrar_mem(int *vetor, size_t n, int j){
+int* dobrar_mem(int **vetor_velho, size_t n, size_t j){
     int *novo_vetor;
-    int i;
+    size_t i;
     n *= 2;
 
-    novo_vetor = (int *) malloc(n);
+    novo_vetor = (int *) malloc(n * sizeof(int));
 
     for (i = 0; i < j; i++){
-        novo_vetor[i] = vetor[i];
+        novo_vetor[i] = **vetor_velho + i;
     }
 
-
-    vetor = novo_vetor;
+    return *&novo_vetor;
 }
 
 int main(){
-    int i, j = 0;
-    size_t n = 5;
+    int i;
+    size_t n = 5, j = 0;
     int *vetor;
 
-    vetor = (int *) malloc(n);
+    vetor = (int *) malloc(n * sizeof(int));
 
     while (1){
 
         for (i = j; i < n; i++){
             printf("N = ");
-            scanf("%d",&vetor[i]);
+            scanf("%d",vetor + i);
 
-            if (vetor[i] == -1) n = 0; break;
-            
+            if (*vetor + i * sizeof(int) == -1) n = 0; break;
         }
+
+        if (n == 0) break;
 
         if (i == n){
             j = n;
-            dobrar_mem(vetor, n, j);
-        }  
-        else if (n == 0 && i <= n) break;
-
+            vetor = (int*) dobrar_mem(&vetor, n, j);
+        }
     }
 
-    for (i = 0; i < n; i++){
-        printf("Posicao %d = %d", i, vetor[i]);
+    for (j = 0; j < i; j++){
+        printf("Posicao %d = %d", j, *vetor + j * sizeof(int));
     }
 
     free(vetor);

@@ -31,23 +31,19 @@ int main(){
         cardapio[i].qtde = 0;
     }
 
-    int cod, qtde, j = 0, ehvalido = 1;
+    int cod, qtde, j = 0;
     double total = 0;
     int *guarda;
-    guarda = (int *) malloc(n);
+    guarda = (int *) malloc(n * sizeof(int));
 
     while (1){
         printf("Qual o codigo do item do cardapio?\n");
         scanf("%d", &cod);
         if (cod == 0) break;
-
         for(i = 0; i < n; i++){
             if(cod == cardapio[i].cod) break;
-            else{
-                ehvalido = 0;
-            }
         }
-        if (ehvalido == 0){
+        if (i == n){
             printf("Código não encontrado!");
         } else{
             printf("Quantas unidade deseja?\n");
@@ -64,7 +60,6 @@ int main(){
         printf("%d x %s\n", cardapio[guarda[i]].qtde, cardapio[guarda[i]].descricao);
     }
     printf("TOTAL R$ %.2lf\n", total);
-
     free(guarda);
     free(cardapio);
     return 0;
