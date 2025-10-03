@@ -20,33 +20,31 @@ int main(){
         perror("Erro ao abrir o arquivo");
     }
 
+    lotr_recovered = fopen("lotr_cap1_recovered.txt", "w");
+    
     while(1){
         controle = 0;
 
         if (fgets(linha_impar, 256, lotr_imp) != NULL){
 
-            fgets(linha_impar, 256, lotr_imp);
-            lotr_recovered = fopen("lotr_cap1_recovered.txt", "+a");
             if (lotr_recovered == NULL){
                 perror("Erro ao abrir o arquivo");
                 break;
-            } else{
-                fprintf(lotr_recovered, "Impar: %s", linha_impar);
-                fclose(lotr_recovered);
+            }
+            else{
+                fputs(linha_impar, lotr_recovered);
             }
         }
         else{ controle += 1; }
 
         if (fgets(linha_par, 256, lotr_par) != NULL){
 
-            fgets(linha_par, 256, lotr_par);
-            lotr_recovered = fopen("lotr_cap1_recovered.txt", "+a");
             if (lotr_recovered == NULL){
                 perror("Erro ao abrir o arquivo");
                 break;
-            } else{
-                fprintf(lotr_recovered, "Par: %s", linha_par);
-                fclose(lotr_recovered);
+            }
+            else{
+                fputs(linha_par, lotr_recovered);
             }
 
         } else{ controle += 1; }
@@ -55,6 +53,11 @@ int main(){
             break;
         }
     }
-
+    
+    fclose(lotr_recovered);
+    
+    fclose(lotr_imp);
+    fclose(lotr_par);
+    
     return 0;
 }
