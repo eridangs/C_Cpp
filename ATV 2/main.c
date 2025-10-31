@@ -12,6 +12,7 @@ void inserir(int valor, celula* header);
 void imprimir(celula* header);
 void buscar_e_remover(int y, celula* header);
 void remover_inicio(celula* header);
+void buscar(int y, celula* header);
 
 int main(){
     celula c, *header;
@@ -42,7 +43,8 @@ int main(){
     inserir(8, header);
 
     imprimir(header);
-    
+    buscar(8, header);
+
     remover_inicio(header);
     remover_inicio(header);
     
@@ -103,5 +105,16 @@ void remover_inicio(celula* header) {
         header->prox = seguinte->prox;
         seguinte->prox->ante = header;
         free(seguinte);
+    }
+}
+
+void buscar(int y, celula* header) {
+    celula *seguinte = header->prox;
+
+    while (seguinte != header && seguinte->conteudo != y){
+        seguinte = seguinte->prox;
+    }
+    if (seguinte != header) {
+        printf("Achou o %d!\n", seguinte->conteudo);
     }
 }
