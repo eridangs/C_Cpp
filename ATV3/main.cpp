@@ -1,33 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void emfilerar(int* lista, int* t, unsigned const T);
-void desemfilherar(int* lista, int* s, int t);
-int imprimirFI(int* lista, int *s, int t, int *isnull);
+void enfileirar(int* lista, int* t, unsigned const MAX);
+void desenfileirar(int* s, int t);
+void imprimirFI(int* lista, int *s, int t);
 
 int main(){
-    int *lista, T, F, opcao, i, s = 0, t = 0, isnull = 0;
+    int *lista, T, opcao, i, s = 0, t = 0;
     scanf("%d", &T);
 
     lista = (int*) malloc(T * sizeof(int));
-    lista[0] = T;
 
     for(i = 0; i < T; i++) {
         scanf("%d", &opcao);
         switch(opcao) {
             case 1:
-                emfilerar(lista, &t, T);
+                enfileirar(lista, &t, T);
 
             break;
 
             case 2:
-                desemfilherar(lista, &s, t);
+                desenfileirar(&s, t);
             break;
 
             case 3:
-                isnull = 0;
-                F = imprimirFI(lista, &s, t, &isnull);
-                if (!isnull) printf("%d\n", F);
+                imprimirFI(lista, &s, t);
             break;
         }
     }
@@ -36,29 +33,28 @@ int main(){
     return 0;
 }
 
-void emfilerar(int* lista, int* t, unsigned const T){
+void enfileirar(int* lista, int* t, unsigned const MAX){
     int n;
 
     scanf("%d", &n);
 
-    if ((*t) != T) {
+    if ((*t) != MAX) {
         lista[*t] = n;
         (*t)++;
     }
 }
 
-void desemfilherar(int* lista, int* s, int t){
+void desenfileirar(int* s, int t){
 
     if ((*s) != t) {
         (*s)++;
     }
 }
 
-int imprimirFI(int* lista, int *s, int t, int *isnull){
+void imprimirFI(int* lista, int *s, int t){
     if ((*s) != t) {
-        return lista[*s];
+        printf("%d\n", lista[*s]);
     } else {
         printf("Empty!\n");
-        return (*isnull = 1);
     }
 }
