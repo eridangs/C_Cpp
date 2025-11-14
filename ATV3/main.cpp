@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void empilhar(int* lista, int* t, unsigned const T);
-void desempilhar(int* lista, int* s, int t);
-int imprimirFI(int* lista, int *s, int t);
+void emfilerar(int* lista, int* t, unsigned const T);
+void desemfilherar(int* lista, int* s, int t);
+int imprimirFI(int* lista, int *s, int t, int *isnull);
 
 int main(){
-    int *lista, T, F, opcao, i, s = 0, t = 0;
+    int *lista, T, F, opcao, i, s = 0, t = 0, isnull = 0;
     scanf("%d", &T);
 
     lista = (int*) malloc(T * sizeof(int));
@@ -16,17 +16,18 @@ int main(){
         scanf("%d", &opcao);
         switch(opcao) {
             case 1:
-                empilhar(lista, &t, T);
+                emfilerar(lista, &t, T);
 
             break;
 
             case 2:
-                desempilhar(lista, &s, T);
+                desemfilherar(lista, &s, t);
             break;
 
             case 3:
-                F = imprimirFI(lista, &s, T);
-                printf("%d", F);
+                isnull = 0;
+                F = imprimirFI(lista, &s, t, &isnull);
+                if (!isnull) printf("%d\n", F);
             break;
         }
     }
@@ -35,7 +36,7 @@ int main(){
     return 0;
 }
 
-void empilhar(int* lista, int* t, unsigned const T){
+void emfilerar(int* lista, int* t, unsigned const T){
     int n;
 
     scanf("%d", &n);
@@ -46,19 +47,18 @@ void empilhar(int* lista, int* t, unsigned const T){
     }
 }
 
-void desempilhar(int* lista, int* s, int t){
+void desemfilherar(int* lista, int* s, int t){
 
     if ((*s) != t) {
-        lista[*s] = NULL;
         (*s)++;
     }
 }
 
-int imprimirFI(int* lista, int *s, int t){
+int imprimirFI(int* lista, int *s, int t, int *isnull){
     if ((*s) != t) {
         return lista[*s];
     } else {
-        printf("Empty!");
-        exit;
+        printf("Empty!\n");
+        return (*isnull = 1);
     }
 }
