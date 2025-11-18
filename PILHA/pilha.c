@@ -4,8 +4,8 @@
 
 // 1 - 11, 7, 2
 
-void empilhar_pilha(int*, int*, int);
-int desempilhar_pilha(int*, int*);
+void empilhar_pilha(int* vetor, int* t_controle, int valor);
+int desempilhar_pilha(int* vetor, int* t_controle);
 
 int main(){
     int *p, t=0, y, i, u;

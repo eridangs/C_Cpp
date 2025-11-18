@@ -21,7 +21,7 @@ int main() {
 
     cabeca = &c;
 
-    int qtd = 0; 
+    int qtd = 0;
 
     insira(50, cabeca);
     insira(10, cabeca);

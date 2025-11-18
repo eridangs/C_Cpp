@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #define TAMANHO_FILA 4
 
-void enfilere(int* f, int *t, int x);
+void enfilere(int* fila_vetor, int *t_controle, int valor);
 
 int main(){
     int *f;
